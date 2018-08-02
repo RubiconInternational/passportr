@@ -1,5 +1,5 @@
 {
-    "name": "jeremykenedy/passportr",
+    "name": "rubiconinternational/passportr",
     "description": "Laravel Passport provides OAuth2 server support to Laravel. This also has relationships",
     "keywords": ["laravel", "passport", "oauth"],
     "license": "MIT",
@@ -7,10 +7,6 @@
         {
             "name": "Taylor Otwell",
             "email": "taylor@laravel.com"
-        },
-        {
-            "name": "Jeremy Kenedy",
-            "email": "jeremykenedy@gmail.com"
         }
     ],
     "require": {
