@@ -204,7 +204,13 @@ class PassportServiceProvider extends ServiceProvider
         );
         // this addition is in response to security improvements
         // refer to https://oauth2.thephpleague.com/v5-security-improvements/
-        $server->setEncryptionKey(env('APP_KEY'));
+		$key = env('APP_KEY');	
+        $contents = file_get_contents('../.env') or '';
+        preg_match('#APP_KEY=base64:(.*)#', $contents, $matches);
+		 if (count($matches) > 1) {
+             $key = $matches[1];
+        }
+        $server->setEncryptionKey($key);
         return $server;
     }
 
