@@ -195,22 +195,23 @@ class PassportServiceProvider extends ServiceProvider
      */
     public function makeAuthorizationServer()
     {
+        /** AE 4/4/2020 changing to use encryption key instead of public key
+        * is in response to security improvements
+        * refer to https://oauth2.thephpleague.com/v5-security-improvements/
+        */
+        $key = env('APP_KEY');
+        $contents = file_get_contents('../.env') or '';
+        preg_match('#APP_KEY=base64:(.*)#', $contents, $matches);
+         if (count($matches) > 1) {
+             $key = $matches[1];
+        }
         $server = new AuthorizationServer(
             $this->app->make(Bridge\ClientRepository::class),
             $this->app->make(Bridge\AccessTokenRepository::class),
             $this->app->make(Bridge\ScopeRepository::class),
             'file://'.Passport::keyPath('oauth-private.key'),
-            'file://'.Passport::keyPath('oauth-public.key')
+            $key
         );
-        // this addition is in response to security improvements
-        // refer to https://oauth2.thephpleague.com/v5-security-improvements/
-		$key = env('APP_KEY');	
-        $contents = file_get_contents('../.env') or '';
-        preg_match('#APP_KEY=base64:(.*)#', $contents, $matches);
-		 if (count($matches) > 1) {
-             $key = $matches[1];
-        }
-        $server->setEncryptionKey($key);
         return $server;
     }
 
