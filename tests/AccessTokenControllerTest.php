@@ -2,8 +2,9 @@
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use PHPUnit\Framework\TestCase;
 
-class AccessTokenControllerTest extends PHPUnit_Framework_TestCase
+class AccessTokenControllerTest extends TestCase
 {
     public function tearDown()
     {

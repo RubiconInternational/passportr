@@ -1,8 +1,9 @@
 <?php
 
 use Laravel\Passport\Bridge\ClientRepository;
+use PHPUnit\Framework\TestCase;
 
-class BridgeClientRepositoryTest extends PHPUnit_Framework_TestCase
+class BridgeClientRepositoryTest extends TestCase
 {
     public function tearDown()
     {

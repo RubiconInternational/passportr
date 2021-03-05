@@ -2,8 +2,9 @@
 
 use Laravel\Passport\Http\Middleware\CheckClientCredentials;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\TestCase;
 
-class CheckClientCredentialsTest extends PHPUnit_Framework_TestCase
+class CheckClientCredentialsTest extends TestCase
 {
     public function tearDown()
     {

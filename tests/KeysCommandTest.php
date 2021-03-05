@@ -1,16 +1,17 @@
 <?php
-
-function storage_path($file = null)
-{
-    return __DIR__ . DIRECTORY_SEPARATOR . $file;
+use PHPUnit\Framework\TestCase;
+if (!function_exists('storage_path')) {
+    function storage_path($file = null)
+    {
+        return __DIR__ . DIRECTORY_SEPARATOR . $file;
+    }
 }
-
 function custom_path($file = null)
 {
     return __DIR__.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.$file;
 }
 
-class KeysCommandTest extends PHPUnit_Framework_TestCase
+class KeysCommandTest extends TestCase
 {
     public function tearDown()
     {

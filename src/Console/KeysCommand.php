@@ -5,6 +5,8 @@ namespace Laravel\Passport\Console;
 use phpseclib\Crypt\RSA;
 use Laravel\Passport\Passport;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
+
 
 class KeysCommand extends Command
 {
@@ -32,8 +34,8 @@ class KeysCommand extends Command
     {
         $keys = $rsa->createKey(4096);
 
-        file_put_contents(Passport::keyPath('oauth-private.key'), array_get($keys, 'privatekey'));
-        file_put_contents(Passport::keyPath('oauth-public.key'), array_get($keys, 'publickey'));
+        file_put_contents(Passport::keyPath('oauth-private.key'), Arr::get($keys, 'privatekey'));
+        file_put_contents(Passport::keyPath('oauth-public.key'), Arr::get($keys, 'publickey'));
 
         $this->info('Encryption keys generated successfully.');
     }

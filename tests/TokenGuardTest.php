@@ -5,8 +5,9 @@ use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
 use Illuminate\Container\Container;
 use Laravel\Passport\Guards\TokenGuard;
+use PHPUnit\Framework\TestCase;
 
-class TokenGuardTest extends PHPUnit_Framework_TestCase
+class TokenGuardTest extends TestCase
 {
     public function tearDown()
     {

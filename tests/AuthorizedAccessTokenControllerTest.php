@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Laravel\Passport\Client;
+use PHPUnit\Framework\TestCase;
 
-class AuthorizedAccessTokenControllerTest extends PHPUnit_Framework_TestCase
+class AuthorizedAccessTokenControllerTest extends TestCase
 {
     public function tearDown()
     {

@@ -2,8 +2,9 @@
 
 use Laravel\Passport\Passport;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\TestCase;
 
-class PersonalAccessTokenControllerTest extends PHPUnit_Framework_TestCase
+class PersonalAccessTokenControllerTest extends TestCase
 {
     public function tearDown()
     {
